@@ -15,8 +15,8 @@ bot.onText(
 )
 
 bot.onText(
-  /^\/car (.+)$/i,
-  async ({ chat: { id: chatId}}, [, carName]) => {
+  /^\/car (.+)$|^\/car$/i,
+  async ({ chat: { id: chatId}}, [, carName = 'elegy']) => {
     const name = carName.toUpperCase()
     const car = cars[name]
     await bot.sendMessage(
