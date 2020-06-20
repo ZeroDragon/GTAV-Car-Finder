@@ -19,9 +19,11 @@ bot.onText(
   async ({ chat: { id: chatId}}, [, carName = 'elegy']) => {
     const name = carName.toUpperCase()
     const car = cars[name]
+    let message = 'no car found with that name'
+    if (car) message = `${ name } | ${ car.hex }\n\`\`\` ${ car.data } \`\`\` `,
     await bot.sendMessage(
       chatId,
-      `${ name } | ${ car.hex }\n\`\`\` ${ car.data } \`\`\` `,
+      message,
       { parse_mode: 'Markdown' }
     )
   }
