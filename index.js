@@ -33,7 +33,6 @@ bot.onText(
 bot.onText(
   /^\/level (.+)$|^\/level$/i,
   async ({ chat: { id: chatId}}, [, levelFind = 1]) => {
-    //console.log(levels)
     let message = 'no level found with that number'
     if ((~~levelFind === parseInt(levelFind, 10) && (levelFind > 0 && levelFind <= levels.length))) {
       const numberLevel = levelFind
